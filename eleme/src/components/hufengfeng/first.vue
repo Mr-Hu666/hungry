@@ -57,13 +57,14 @@
               </div>
             </div>
             <div class="cen-p2">
-              <el-rate
+              <!-- <el-rate
                 v-model="v.rating"
                 disabled
                 :show-score="seen"
                 text-color="#ff9900"
                 class="rates"
-              ></el-rate>
+              ></el-rate> -->
+              <van-rate v-model="v.rating" readonly class="rates" size="0.15rem" />
               <span>月售{{v.recent_order_num}}单</span>
               <div class="bao-rig2" v-if="v.delivery_mode">
                 <span v-if="v.delivery_mode.text">{{v.delivery_mode.text}}</span>
@@ -83,7 +84,7 @@
     </div>
 
  <div class="bottomss">
-            <div class="home" @click="tohome()">
+            <div class="home">
                 <img src="../../../static/imgs/homeT.png" alt="">
                 <p>外卖</p>
             </div>
@@ -391,6 +392,7 @@ export default {
   height: 0.4rem;
   line-height: 0.4rem;
   overflow: hidden;
+  border-bottom:1px solid lightgray;
 }
 .nearh img {
   float: left;
@@ -409,7 +411,7 @@ export default {
 .loopline {
   width: 100%;
   height: 0.9rem;
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid lightgray;
 }
 .loopline > div {
   float: left;
@@ -455,10 +457,11 @@ export default {
 }
 .rates {
   float: left;
-  width: 50%;
+  width: 35%;
   font-size: 0.1rem;
-  padding: 0;
-  margin: 0;
+  margin-top: 0.05rem;
+  /* padding: 0; */
+  /* margin: 0; */
 }
 .cen-p2 {
   width: 100%;
@@ -491,6 +494,8 @@ export default {
 .rig3 {
   float: right;
   margin-right: 0.05rem;
+  /* border:1px solid red;
+  box-sizing: border-box; */
 }
 .rig3 span:nth-child(2) {
   color: rgb(49, 143, 231);

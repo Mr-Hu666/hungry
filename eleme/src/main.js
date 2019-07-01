@@ -7,6 +7,15 @@ import Vuex from 'vuex'
 import store from './store'
 Vue.use(Vuex)
 
+
+import Vant from 'vant';
+import 'vant/lib/index.css';
+Vue.use(Vant);
+import { Rate } from 'vant';
+Vue.use(Rate);
+
+
+
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 Vue.use(VueAxios, axios)
