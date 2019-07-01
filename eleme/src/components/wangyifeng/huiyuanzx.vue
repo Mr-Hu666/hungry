@@ -230,6 +230,7 @@ align-items: center;
 .duihuan {
   font-size: 0.18rem;
   margin-left: 0.1rem;
+    color: #333;
 }
 .km {
   padding-left: 1.8rem;
@@ -259,6 +260,7 @@ align-items: center;
 .gl {
   font-size: 0.18rem;
   margin-left: 0.1rem;
+   color: #333;
 }
 .kp {
   float: right;

@@ -60,7 +60,7 @@ export default {
 #top {
   width: 100%;
   height: 0.55rem;
-  background-color: blue;
+  background-color: rgb(49, 143, 231);
   position: fixed;
   z-index: 2;
   left: 0;

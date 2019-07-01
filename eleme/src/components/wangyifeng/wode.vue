@@ -390,7 +390,8 @@ export default {
 }
 .o2 {
   float: right;
-  width: 0.15rem;
+  margin-right: 0.1rem;
+  width: 0.08rem;
   margin-top: -0.3rem;
 }
 /* .o2 img{
@@ -417,7 +418,8 @@ export default {
 }
 .s2 {
   float: right;
-  width: 0.15rem;
+ margin-right: 0.1rem;
+  width: 0.08rem;
   margin-top: -0.3rem;
 }
 
@@ -443,7 +445,8 @@ export default {
 }
 .h2 {
   float: right;
-  width: 0.15rem;
+  margin-right: 0.1rem;
+  width: 0.08rem;
   margin-top: -0.25rem;
 }
 .fuwu {
@@ -475,7 +478,8 @@ export default {
 }
 .z2 {
   float: right;
-  width: 0.15rem;
+  margin-right: 0.1rem;
+  width: 0.08rem;
   margin-top: -0.25rem;
 }
 .xiaz {
@@ -497,7 +501,8 @@ export default {
 }
 .x2 {
   float: right;
-  width: 0.15rem;
+  margin-right: 0.1rem;
+  width: 0.08rem;
   margin-top: -0.3rem;
 }
 .bottomss{
