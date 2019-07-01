@@ -174,7 +174,7 @@ export default {
          sortof[i].style.color = "black";
 
       }
-      sortof[a].style.backgroundColor = "blue";
+      sortof[a].style.backgroundColor = "rgb(49, 143, 231)";
       sortof[a].style.color = "white";
     }
   },

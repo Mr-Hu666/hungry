@@ -100,6 +100,9 @@ export default {
     },
     dejian(b) {
       this.$store.commit("goujian", b);
+      if(this.num==0){
+         this.$store.state.haimo = 20;
+      }
     },
     clearall(s) {
       for (var i = 0; i < s.length; i++) {
