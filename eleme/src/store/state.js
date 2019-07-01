@@ -1,7 +1,7 @@
 export default {
 
     dog:true,
-
+    depo:"",
 
     cityID:"",
     latitude:"",

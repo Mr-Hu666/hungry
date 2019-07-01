@@ -31,7 +31,7 @@
              <div class="look4" v-if="look"><span>抱歉，没有搜索结果</span></div>
         <div class="results">
             <ul>
-                <li  @click="getHistory(v.name,v.address,v.latitude,v.longitude);getJW(v.latitude,v.longitude)" class="detail" v-for="(v,i) in msgdata" :key="i">
+                <li  @click="getHistory(v.name,v.address,v.latitude,v.longitude);getJW(v.latitude,v.longitude,v.name)" class="detail" v-for="(v,i) in msgdata" :key="i">
                    
                         <p>{{v.name}}</p>
                         <p>{{v.address}}</p>
@@ -153,7 +153,7 @@ export default {
             }
 
         },
-        getJW(ac,bc){
+        getJW(ac,bc,dd){
              this.$router.push({
             name:"first",
             // params:{sid:vid},
@@ -161,6 +161,7 @@ export default {
         });
             // console.log("欧式jw");
             this.$store.commit("getLocation",{"c":ac,"d":bc});
+             this.$store.commit("findPo",dd);
            
             // console.log(ac,bc);
             //  console.log("a:"+this.$store.state.latitude);
