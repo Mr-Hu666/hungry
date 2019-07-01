@@ -436,6 +436,7 @@ export default {
   height: 0.2rem;
   float: right;
   font-size: 0.13rem;
+  margin-right: 0.05rem;
 }
 .bao-rig > span {
   display: inline-block;
@@ -459,6 +460,7 @@ export default {
   padding-top: 0.025rem;
   height: 0.2rem;
   float: right;
+  margin-right: 0.05rem;
   font-size: 0.08rem;
 }
 .bao-rig2 span {
@@ -476,6 +478,7 @@ export default {
 }
 .rig3 {
   float: right;
+  margin-right: 0.05rem;
 }
 .rig3 span:nth-child(2) {
   color: rgb(49, 143, 231);
