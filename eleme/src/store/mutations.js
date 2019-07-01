@@ -1,11 +1,14 @@
 export default {
+  findPo(state,bb){
+    state.depo = bb;
+  },
   getcityID(state, cityID) {//state是必须参数
     state.shopID = cityID;
   },
   getLocation(state, datass) {
     state.latitude = datass.c;
     state.longitude = datass.d;
-    // console.log(state.latitude, state.longitude);
+    console.log(state.latitude, state.longitude);
 
   },
   getshopID(state, shopID) {//state是必须参数
@@ -60,6 +63,7 @@ getname(state,a){
 },
 getid(state,a){
   this.state.cityid=a;
+  console.log(a);
 },
 getgeohash(state,a){
   this.state.geohash=a;

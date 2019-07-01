@@ -5,7 +5,8 @@
        <div class="fangda" @click="sousuo()">
           <img class="lulu" src="../../../static/imgs/find.png" />
       </div>
-     <span class="dizhi">{{detail}}</span>
+     <!-- <span class="dizhi">{{detail}}</span> -->
+     <span class="dizhi">{{this.$store.state.depo}}</span>
       <div class="dengli">
        <span @click="login()" v-if="this.$store.state.where">登录/注册</span>
         <img @click="first()" v-else class="toutou" src="../../../static/imgs/meF.png" alt />
@@ -64,8 +65,8 @@
                 class="rates"
               ></el-rate>
               <span>月售{{v.recent_order_num}}单</span>
-              <div class="bao-rig2">
-                <span>{{v.delivery_mode.text}}</span>
+              <div class="bao-rig2" v-if="v.delivery_mode">
+                <span v-if="v.delivery_mode.text">{{v.delivery_mode.text}}</span>
                 <span>{{v.supports[1].name}}</span>
               </div>
             </div>
@@ -201,9 +202,9 @@ export default {
         method: "get",
         withCredentials: true
       }).then(res => {
-        // console.log(api);
+        console.log(api);
         //  console.log("apissss");
-        // console.log(res.data);
+        console.log(res.data);
         this.detail = res.data.name;
         // count++;
         // if (count == 3) {
@@ -225,8 +226,8 @@ export default {
         withCredentials: true
       }).then(res => {
         // console.log("datas");
-        //  console.log(api);
-        // console.log(res.data);
+         console.log(api);
+        console.log(res.data);
         // console.log(res.data.order_by);
         this.xinxi = res.data;
         // count++;

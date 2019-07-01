@@ -52,7 +52,7 @@ export default {
       // const api ="https://elm.cangdu.org/v1/pois?city_id="+this.$store.state.cityid+"&keyword="+this.keyword+"&type=search";
       const api =
         "https://elm.cangdu.org/v1/pois?city_id=" +
-        this.$store.state.cityID +
+        this.$store.state.cityid +
         "&keyword=" +
         this.keyword;
       this.$http({

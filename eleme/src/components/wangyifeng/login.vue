@@ -13,7 +13,7 @@
           <button class="ht" @click="getCode()">换一张</button>
          <p class="z1">温馨提示:未注册过的账号，登录时将自动注册</p>
           <p class="z2">注册过的用户可凭账号密码登录</p>
-       <button class="log" @click="login()">登录</button>
+       <button class="log" @click="loginqq()">登录</button>
           <router-link class="two" to="/chong" >重置密码?</router-link>
           </div>
     </div>
@@ -50,7 +50,8 @@ export default {
           })
         },
         
-        login(){
+        loginqq(){
+            //https://elm.cangdu.org/v2/login
             const api = "https://elm.cangdu.org/v2/login";
             this.$http({
                 url:api,
