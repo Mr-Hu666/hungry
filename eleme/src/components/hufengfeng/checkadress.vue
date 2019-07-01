@@ -71,6 +71,8 @@ export default {
         this.cityid = this.$route.query.id;
         // console.log(this.cityid);
         this.useHis();
+        console.log(this.$route.query.id);
+        this.$store.commit("getid",this.$route.query.id);
         
     },
     methods: {

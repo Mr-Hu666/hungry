@@ -6,11 +6,11 @@
           <img src="../../../static/imgs/back.png" alt>
         </span>
       </router-link>
-      <span class="topS1">{{name}}</span>
+      <span class="topS1">{{names}}</span>
     </div>
     <div class="title">
       <div @click="change1()" class="tit1"> <router-link to="/part"> 
-          <p v-if="this.$store.state.show1">{{name}}</p>
+          <p v-if="this.$store.state.show1">{{names}}</p>
           <p :style="{color:this.$store.state.color1}" v-if="this.$store.state.xian1">分类</p>
           <img v-if="this.$store.state.show1" src="../../../static/imgs/up1.png" alt>
           <img v-if="this.$store.state.xian1" src="../../../static/imgs/up2.png" alt>
@@ -43,7 +43,7 @@
         <div class="baocen">
           <div class="cen-p1">
             <span>品牌</span>
-            <span>{{v.name}}</span>
+            <span v-if="v.name">{{v.name}}</span>
             <div class="bao-rig">
               <span v-if="v.supports[0]">{{v.supports[0].icon_name}}</span>
               <span v-if="v.supports[1]">{{v.supports[1].icon_name}}</span>
@@ -61,7 +61,7 @@
             <span>月售{{v.recent_order_num}}单</span>
             <div class="bao-rig2" v-if="v.delivery_mode">
               <span v-if="v.delivery_mode.text">{{v.delivery_mode.text}}</span>
-              <span>{{v.supports[1].name}}</span>
+              <span v-if="v.supports[1].name">{{v.supports[1].name}}</span>
             </div>
           </div>
           <div class="cen-p3">
@@ -84,7 +84,7 @@ export default {
   name: "sweet",
   data() {
     return {
-      name: "",
+      names: "",
       show4: false,
       show2: true,  
       xian2: false,
@@ -100,7 +100,7 @@ export default {
   },
   created() {
     // console.log(this.$route);
-    this.name = this.$route.query.id;
+    this.names = this.$route.query.id;
     // this.geteat();
     // console.log(this.$route.query);
     // this.name = this.$route.query.id;

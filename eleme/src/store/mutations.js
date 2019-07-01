@@ -63,6 +63,7 @@ getname(state,a){
 },
 getid(state,a){
   this.state.cityid=a;
+  console.log(a);
 },
 getgeohash(state,a){
   this.state.geohash=a;
