@@ -5,8 +5,8 @@
        <div class="fangda" @click="sousuo()">
           <img class="lulu" src="../../../static/imgs/find.png" />
       </div>
-     <!-- <span class="dizhi">{{detail}}</span> -->
-     <span class="dizhi">{{this.$store.state.depo}}</span>
+     <span class="dizhi">{{detail}}</span>
+     <!-- <span class="dizhi">{{this.$store.state.depo}}</span> -->
       <div class="dengli">
        <span @click="login()" v-if="this.$store.state.where">登录/注册</span>
         <img @click="first()" v-else class="toutou" src="../../../static/imgs/meF.png" alt />

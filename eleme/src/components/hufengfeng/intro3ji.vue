@@ -40,10 +40,32 @@
         <p class="classp2" v-if="this.$store.state.totalprice>=20">请结算</p>
       </div>
      <img src="../../../static/imgs/gouwuche.png" v-if="this.$store.state.totalprice<20" class="goshop">
-      <img src="../../../static/imgs/gouwuche.png" v-else class="goshopblue">
-      <div class="countnum" v-if="numb">{{numb}}</div>
+      <img @click.stop="shopping=!shopping" src="../../../static/imgs/gouwuche.png" v-else class="goshopblue">
+      <div class="countnum" v-if="num">{{num}}</div>
     </div>
  
+<div class="cargo" v-if="shopping && shopnum.length>0">
+      <p v-if="shopnum.length>0 && shopping" class="pshop1">
+        <span>购物车</span>
+        <span @click="clearall(shopnum)" class="clearall">清空</span>
+      </p>
+      <div class="cargoline" v-for="(y,z) in shopnum" :key="z">
+        <div>
+          <span>{{y.name}}</span>
+        </div>
+        <div>
+          <span v-if="y.specfoods.length==1 ">￥{{y.specfoods[0].price}}</span>
+          <span v-if="y.specfoods.length>1 & elsesee">￥{{y.specfoods[0].price}}</span>
+          <span v-if="y.specfoods.length>1 & ifsee">￥{{y.specfoods[1].price}}</span>
+        </div>
+        <span class="jiangou" @click.stop="dejian(y._id)">-</span>
+        <span class="reduceadd">{{y.is_featured}}</span>
+        <span class="jiagou" @click.stop="adjia(y._id)">+</span>
+      </div>
+    </div>
+
+
+
     </div>
 </template>
 
@@ -55,7 +77,10 @@ export default {
             msg:{},
             seen:true,
             numb:"",
-            shopdata:""
+            shopdata:"",
+            shopping: false,
+            elsesee: true,
+            ifsee: false,
         }
     },
     created() {
@@ -69,8 +94,46 @@ export default {
             this.$router.push({
                 name:"stores"
             });
-        }
+        },
+        adjia(a) {
+      this.$store.commit("goujia", a);
     },
+    dejian(b) {
+      this.$store.commit("goujian", b);
+    },
+    clearall(s) {
+      for (var i = 0; i < s.length; i++) {
+        s[i].is_featured = 0;
+      }
+      this.$store.state.totalprice = 0;
+      this.$store.state.haimo = 20;
+      this.shopping = false;
+    }
+    },
+    computed:{
+       shopnum() {
+      var ab = [];
+      for (var i = 0; i < this.$store.state.obj.length; i++) {
+        for (var k = 0; k < this.$store.state.obj[i].foods.length; k++) {
+          if (this.$store.state.obj[i].foods[k].is_featured > 0) {
+            ab.push(this.$store.state.obj[i].foods[k]);
+          }
+        }
+      }
+      return ab;
+    },
+
+     num() {
+      var a = 0;
+      for (var i = 0; i < this.$store.state.obj.length; i++) {
+        for (var k = 0; k < this.$store.state.obj[i].foods.length; k++) {
+          a += this.$store.state.obj[i].foods[k].is_featured;
+        }
+      }
+      return a;
+    }
+
+    }
 }
 </script>
 
@@ -146,6 +209,7 @@ color: orangered;
   position: fixed;
   bottom: 0;
   left: 0;
+  z-index: 25;
   background-color: rgb(66, 65, 70);
 }
 .goshop {
@@ -216,6 +280,85 @@ background-color: rgb(80, 81, 83);
   background-color: rgb(75,218,100);
 }
 
+
+.cargo {
+  width: 100%;
+  max-height: 2.8rem;
+  position: fixed;
+  left: 0;
+  bottom: 0.45rem;
+  overflow-y: scroll;
+  z-index: 20;
+  background-color: white;
+}
+.cargoline {
+  width: 100%;
+  height: 0.35rem;
+  /* background-color: yellow; */
+}
+.cargoline > div {
+  float: left;
+  height: 0.35rem;
+}
+.cargoline > div:nth-child(1) {
+  width: 65%;
+  line-height: 0.35rem;
+  font-size: 0.16rem;
+  font-weight: bold;
+  background-color: #fff;
+}
+.cargoline > div:nth-child(2) {
+  width: 15%;
+  font-size: 0.16rem;
+  /* border: 1px solid red; */
+  color: red;
+  font-weight: bold;
+  box-sizing: border-box;
+  /* background-color:yellow; */
+  line-height: 0.35rem;
+}
+.cargoline > div:nth-child(3) {
+  width: 20%;
+  /* background-color: lightblue; */
+  line-height: 0.35rem;
+}
+.jiangou {
+  /* margin-right: 0.05rem; */
+  border-radius: 50%;
+  font-size: 0.15rem;
+  padding: 0.05rem;
+  padding-left: 0.08rem;
+  padding-right: 0.08rem;
+  display: block;
+  margin-right: 0.05rem;
+  float: left;
+  color: white;
+  margin-top: 0.05rem;
+  background-color: rgb(49, 143, 231);
+}
+.jiagou {
+  border-radius: 50%;
+  padding: 0.05rem;
+  display: block;
+  font-size: 0.15rem;
+  margin-right: 0.05rem;
+  margin-top: 0.05rem;
+  float: right;
+  color: white;
+  background-color: rgb(49, 143, 231);
+}
+.reduceadd {
+  line-height: 0.35rem;
+}
+.pshop1 {
+  height: 0.35rem;
+  line-height: 0.35rem;
+  background-color: rgb(239, 239, 239);
+}
+.pshop1 span:nth-child(2) {
+  float: right;
+  margin-right: 0.1rem;
+}
 
 
 </style>
