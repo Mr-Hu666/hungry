@@ -61,7 +61,7 @@
             <span>月售{{v.recent_order_num}}单</span>
             <div class="bao-rig2" v-if="v.delivery_mode">
               <span v-if="v.delivery_mode.text">{{v.delivery_mode.text}}</span>
-              <span v-if="v.supports[1].name">{{v.supports[1].name}}</span>
+              <span v-if="v.supports[1]">{{v.supports[1].name}}</span>
             </div>
           </div>
           <div class="cen-p3">
