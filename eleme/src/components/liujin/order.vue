@@ -58,7 +58,7 @@ export default {
 }
 .top {
   width: 100%;
-  height: 0.4rem;
+  height: 0.5rem;
   background-color: rgb(49, 143, 231);
   position: fixed;
   left: 0;
@@ -79,8 +79,8 @@ export default {
   position: absolute;
   left: 40vw;
   top: 0;
-  line-height: 0.4rem;
-  height: 0.4rem;
+  line-height: 0.5rem;
+  height: 0.5rem;
 }
 
 .bottomss{
