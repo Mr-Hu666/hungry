@@ -139,9 +139,16 @@ export default {
 .j1 {
   width: 1rem;
   height: 0.5rem;
+  margin-right:0.15rem; 
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
+.j1 img{
+  width:0.08rem;
+  position: absolute;
+ right: 0.1rem;
+ top: 1.27rem;
 }
 .two {
   width: 100%;
@@ -230,10 +237,10 @@ align-items: center;
 .duihuan {
   font-size: 0.18rem;
   margin-left: 0.1rem;
-    color: #333;
+  color: #666;
 }
 .km {
-  padding-left: 1.8rem;
+  margin-left: 1.7rem;
   font-size: 0.15rem;
   color: #999;
 }
@@ -245,7 +252,8 @@ align-items: center;
   align-items: center;
 }
 .j2 img {
-  width: 0.2rem;
+  width:0.08rem;
+  margin-right: 0.1rem;
 }
 .fp {
   width: 3.75rem;
@@ -260,11 +268,11 @@ align-items: center;
 .gl {
   font-size: 0.18rem;
   margin-left: 0.1rem;
-   color: #333;
+   color: #666;
 }
 .kp {
   float: right;
-  padding-left: 1.8rem;
+  margin-left: 1.9rem;
   font-size: 0.15rem;
   color: #999;
 }
@@ -276,6 +284,7 @@ align-items: center;
   align-items: center;
 }
 .j3 img {
-  width: 0.2rem;
+  width:0.08rem;
+  margin-right: 0.1rem;
 }
 </style>

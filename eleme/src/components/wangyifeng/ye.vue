@@ -10,7 +10,7 @@
       <div class="center">
         <p class="dq">当前余额</p>
         <router-link to="yueshuoming">
-             <img class="img1" src="../../../static/imgs/wenhao.png">
+          <img class="img1" src="../../../static/imgs/wenhao.png">
 <p class="sm">余额说明</p></router-link>
         <p class="qian">0.00元</p>
          <p class="tx">提现</p>
@@ -55,7 +55,8 @@ export default {
 }
 .left {
   float: left;
-  padding-left: 0.1rem;
+ margin-left: 0.1rem;
+ margin-top: 0.1rem;
 }
 .left img {
   width: 0.3rem;
@@ -99,13 +100,13 @@ margin-top: 0.05rem;
   color: #3190e8;
 }
 .qian {
-  margin-top: 0.2rem;
+      margin-top: 0.2rem;
  margin-left: 0.1rem;
   font-size: 0.2rem;
 }
 
 .tx {
-   margin-left: 0.15rem;
+  margin-left: 0.15rem;
   margin-right: 0.15rem;
   margin-top: 0.85rem;
   padding: 0.1rem;

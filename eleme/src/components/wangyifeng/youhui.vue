@@ -173,7 +173,6 @@ export default {
   position: absolute;
   right: 0.25rem;
   top: 0;
-  color: #3190e8;
 }
 #tit2 img:nth-child(1) {
   width: 0.15rem;
@@ -261,11 +260,12 @@ export default {
   left: 1.05rem;
   bottom: 1.2rem;
   font-size: 0.2rem;
-  color:#999;
+   color: #999;
 }
 #bottom2 img{
   width: 0.1rem;
   position: absolute;
+ top: 5.3rem;
   left: 2.34rem;
   bottom: 1.26rem;
 }
@@ -285,12 +285,12 @@ export default {
   width: 1.85rem;
   height: 0.45rem;
   border: 0.01rem solid gainsboro;
- color:#555; 
+  color: #555;
 }
 #bottom p:nth-child(2){
   width: 1.85rem;
   height: 0.45rem;
   border: 0.01rem solid gainsboro;
-  color:#555; 
+   color: #555;
 }
 </style>
