@@ -64,7 +64,7 @@
                 text-color="#ff9900"
                 class="rates"
               ></el-rate> -->
-              <van-rate v-model="v.rating" readonly color="#ff6000" class="rates" size="0.12rem" />
+              <van-rate v-model="v.rating" allow-half readonly color="#ff6000" class="rates" size="0.12rem" />
               <span class="xingxing">{{v.rating}}</span>
               <span>月售{{v.recent_order_num}}单</span>
               <div class="bao-rig2" v-if="v.delivery_mode">

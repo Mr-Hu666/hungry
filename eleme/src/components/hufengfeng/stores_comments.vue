@@ -12,7 +12,8 @@
       <div class="to-right">
         <div>
           <span>服务态度</span>
-          <span>
+           <span><van-rate v-model="server" allow-half readonly class="ratesss" size="0.16rem" /></span>
+          <span>   
             <!-- <el-rate
               v-model="server"
               disabled
@@ -20,15 +21,15 @@
               text-color="#ff9900"
               class="ratesss"
             ></el-rate> -->
-
-            <van-rate v-model="server" readonly class="ratesss" size="0.18rem" />
-
-
+             {{server}}
           </span>
         </div>
         <div>
           <span>菜品评价</span>
-          <span>
+          <span><van-rate v-model="caipin" allow-half readonly class="ratesss" size="0.16rem" /></span>
+          
+          <span>           
+             {{caipin}}
             <!-- <el-rate
               v-model="caipin"
               disabled
@@ -36,7 +37,6 @@
               text-color="#ff9900"
               class="ratesss"
             ></el-rate> -->
-            <van-rate v-model="caipin" readonly class="ratesss" size="0.18rem" />
           </span>
         </div>
         <div>
@@ -225,14 +225,28 @@ export default {
   font-size: 0.12rem;
   color: gray;
 }
+
 .to-right {
   width: 60%;
   height: 0.8rem;
   padding-top: 0.05rem;
   background-color: #fff;
   font-size: 0.16rem;
+  overflow: hidden;
 }
-.to-right > div > span {
+.to-right > div{
+  width: 100%;
+  overflow: hidden;
+}
+/* .to-right > div > span {
+
+  float: left;
+} */
+.to-right > div > span:nth-child(1){
+float: left;
+}
+.to-right > div > span:nth-child(2){
+  width: 50%;
   float: left;
 }
 .v-comments {

@@ -58,13 +58,13 @@ export default {
 }
 .top {
   width: 100%;
-  height: 0.5rem;
+  height: 0.4rem;
   background-color: rgb(49, 143, 231);
   position: fixed;
   left: 0;
   top: 0;
   line-height: 0.5rem;
-  font-size: 0.2rem;
+  font-size: 0.18rem;
   overflow: hidden;
 }
 .top > span > img {
@@ -74,12 +74,13 @@ export default {
 }
 .topS1 {
   color: white;
-  font-size: 0.2rem;
+  font-size: 0.18rem;
   font-weight: bold;
   position: absolute;
   left: 40vw;
   top: 0;
-  height: 0.5rem;
+  line-height: 0.4rem;
+  height: 0.4rem;
 }
 
 .bottomss{
