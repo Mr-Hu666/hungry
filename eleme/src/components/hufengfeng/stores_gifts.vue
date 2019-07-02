@@ -281,19 +281,6 @@ export default {
         balls[b].style.transition = "left 1s linear, top 1s ease-in";
       }, 10);
 
-      //       var $ball = document.getElementById("ball");
-      //  jiahao[i].onclick = function(evt) {
-      //             // console.log(evt.pageX,evt.pageY);
-      //             $ball.style.top = evt.pageY + "px";
-      //             $ball.style.left = evt.pageX + "px";
-      //             $ball.style.transition = "left 0s, top 0s";
-      //             setTimeout(() => {
-      //               $ball.style.top = window.innerHeight + "px";
-      //               $ball.style.left = "0px";
-      //               $ball.style.transition = "left 1s linear, top 1s ease-in";
-      //             }, 20);
-      //           };
-
       this.chaqian =
         this.shopdata.float_minimum_order_amount - this.$store.state.totalprice;
       this.gouis = k;
@@ -390,6 +377,8 @@ export default {
       }
       this.$store.state.totalprice = 0;
       this.shopping = false;
+      this.chaqian = 0;
+       this.$store.commit("recqian", this.chaqian);
     }
   },
   computed: {

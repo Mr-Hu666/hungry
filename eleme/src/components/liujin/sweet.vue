@@ -58,7 +58,8 @@
               text-color="#ff9900"
               class="rates"
             ></el-rate> -->
-            <van-rate v-model="v.rating" readonly class="rates" size="0.15rem" />
+            <van-rate v-model="v.rating" readonly color="#ff6000" class="rates" size="0.12rem" />
+            <span class="xingxing">{{v.rating}}</span>
             <span>月售{{v.recent_order_num}}单</span>
             <div class="bao-rig2" v-if="v.delivery_mode">
               <span v-if="v.delivery_mode.text">{{v.delivery_mode.text}}</span>
@@ -453,7 +454,7 @@ export default {
   display: inline-block;
 }
 .cen-p1 > span:nth-child(1) {
-  font-size: 0.13rem;
+  font-size: 0.1rem;
   background-color: yellow;
 }
 .cen-p1 > span:nth-child(2) {
@@ -469,11 +470,15 @@ export default {
 }
 .bao-rig > span {
   display: inline-block;
+  padding: 0.01rem;
   border: 1px solid gray;
+   font-size: 0.1rem;
+   color: #999;
+
 }
 .rates {
   float: left;
-  width: 35%;
+  width: 28%;
   font-size: 0.1rem;
   /* padding: 0; */
   margin-top: 0.05rem;
@@ -484,6 +489,9 @@ export default {
 }
 .cen-p2 span {
   font-size: 0.08rem;
+}
+.xingxing{
+ color: #ff6000;
 }
 .bao-rig2 {
   padding-top: 0.025rem;
