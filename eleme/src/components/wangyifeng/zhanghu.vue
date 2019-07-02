@@ -72,7 +72,7 @@
 </template>
 <script>
 export default {
-  name: "zhanghux",
+  name: "zhanghu",
   data() {
     return {
       tk1: false,
