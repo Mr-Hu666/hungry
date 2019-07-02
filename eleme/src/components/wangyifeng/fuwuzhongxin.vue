@@ -229,7 +229,7 @@ export default {
 }
 #_head {
   margin-top: 0.1rem;
-  width: 0.15rem;
+  width: 0.2rem;
   float: left;
 }
 #_head_ {

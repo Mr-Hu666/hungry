@@ -4,7 +4,7 @@
  <p @click="go()" class="left">
         <img src="../../../static/imgs/back.png">
       </p>
-        <span class="jf">我的积分</span> 
+        <span class="wo">我的积分</span> 
 
       <div class="center">
         <p class="dq">当前积分</p>
@@ -74,18 +74,20 @@ if(this.tk==true){
 }
 .left {
   float: left;
-  padding-left: 0.1rem;
+margin-left: 0.1rem;
+margin-top: 0.1rem;
 }
 .left img {
   width: 0.3rem;
   height: 0.3rem;
 }
-.jf{
+.wo{
   position: absolute;
-  text-align: center;
+margin: 0 auto;
   color:white;
-  margin-top:0.2rem; 
+ top:0.2rem; 
   left:1.5rem; 
+  font-size: 0.2rem;
    
 }
 .center {
@@ -105,14 +107,13 @@ margin-top: 0.05rem;
   font-size: 0.13rem;
 }
 .img1{
+  position: absolute;
   width: 0.1rem;
-   margin-top: 0.05rem;
+ top: 0.1rem;
+ right:0.7rem;
   
 }
-/* .img1 img{
-   margin-top: 0.1rem;
-  margin-right: 0.1rem; 
-} */
+
 .sm {
   margin-top: 0.05rem;
   float: right;
@@ -120,16 +121,16 @@ margin-top: 0.05rem;
   color: #3190e8;
 }
 .qian {
-    float: left;
-    margin-top: 0.25rem;
- left: 0.1rem;
+   
+    margin-top: 0.2rem;
+ margin-left: 0.1rem;
   font-size: 0.2rem;
 }
 
 .jl{
   margin-left: 0.15rem;
   margin-right: 0.15rem;
-  margin-top: 1.1rem;
+  margin-top: 0.8rem;
   padding: 0.1rem;
   height: 0.3rem;
   line-height: 0.3rem;
@@ -155,14 +156,16 @@ margin-top: 0.05rem;
      height: 1rem;
      }
    .jf{
-margin-top: 0.1rem;
+     position: absolute;
+ top: 4.5rem;
  left: 1.1rem;
+ margin: 0 auto;
 font-size: 0.15rem;
 color: #666;
    }  
    .zw{
-margin-top: 0.4rem;
-margin-left: 1.1rem;
+margin-top: 0.5rem;
+margin-left: 1.2rem;
 font-size: 0.1rem;
 color: #666;
    } 
