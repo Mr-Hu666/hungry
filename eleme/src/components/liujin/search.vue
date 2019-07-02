@@ -14,7 +14,7 @@
     <div v-if="xian">
       <p class="store">商家</p>
       <div class="storeMessage">
-        <li class="storeMessage" v-for="(v,i) in detial" :key="i">
+        <li class="storeMessage" @click="chuan(v.id)" v-for="(v,i) in detial" :key="i">
           <img class="storeImg" :src="'https://elm.cangdu.org/img/'+v.image_path" alt width="12%">
           <p class="storeP1">{{v.name}}</p>
           <p class="storeP2">月售{{v.recent_order_num}}单</p>
@@ -151,10 +151,14 @@ export default {
       }
     },
     clearall() {
-      this.history = "";
+      this.history = [];
+       this.$store.state.history=[];
       this.show1 = false;
     },
-
+    chuan(a){
+      this.$store.commit("getshopID",a);
+      this.$router.push({name:"stores"});
+    },
     lishi(v) {
       //   this.id=v.id;
       this.inp = v;
