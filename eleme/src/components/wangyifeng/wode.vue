@@ -204,8 +204,8 @@ export default {
 }
 .j1 img {
   margin-top: 0.1rem;
-  width: 0.5rem;
-  height: 0.4rem;
+  width: 0.3rem;
+  height: 0.3rem;
 }
 .my1 {
   position: absolute;

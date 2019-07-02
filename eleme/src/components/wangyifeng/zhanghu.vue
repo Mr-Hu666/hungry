@@ -229,24 +229,18 @@ export default {
   line-height: 0.5rem;
   border-bottom: 1px solid gray;
 }
-/* .tu{
-    position: absolute;
-    top:0.7rem;
-    padding-left: 3rem;
-    }
-    .tu img{
-        width:0.35rem;
-        height:0.35rem;
-    } */
+
 .right1 {
   float: right;
   position: absolute;
   top: 0.8rem;
-  margin-left: 3.4rem;
+  margin-left: 3.52rem;
 }
 .right1 img {
-  width: 0.2rem;
-  height: 0.2rem;
+  margin-top:0rem;
+  width: 0.08rem;
+ right:0.1rem; 
+  
 }
 .yh {
   position: absolute;
@@ -265,11 +259,12 @@ export default {
   float: right;
   position: absolute;
   top: 1.3rem;
-  margin-left: 3.4rem;
+  margin-left: 3.52rem;
 }
 .right2 img {
-  width: 0.2rem;
-  height: 0.2rem;
+  margin-top:0rem;
+  width: 0.08rem;
+ right:0.1rem; 
 }
 .dz {
   margin-left: 0.1rem;
@@ -283,8 +278,9 @@ export default {
   margin-right: 0.1rem;
 }
 .right3 img {
-  width: 0.2rem;
-  height: 0.2rem;
+   margin-top:0rem;
+  width: 0.08rem;
+ right:0.1rem; 
 }
 .bd {
   padding-left: 0.1rem;
@@ -311,8 +307,9 @@ export default {
   padding-right: 0.1rem;
 }
 .right4 img {
-  width: 0.2rem;
-  height: 0.2rem;
+  margin-top:0rem;
+  width: 0.08rem;
+ right:0.1rem; 
 }
 .aq {
   padding-left: 0.1rem;
@@ -337,8 +334,9 @@ export default {
   padding-right: 0.1rem;
 }
 .right5 img {
-  width: 0.2rem;
-  height: 0.2rem;
+  margin-top:0rem;
+  width: 0.08rem;
+ right:0.1rem; 
 }
 .tc {
   width: 96%;

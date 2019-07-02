@@ -180,6 +180,7 @@ export default {
 #tit2 p:nth-child(2) {
   font-size: 0.12rem;
   display: inline;
+  color:#3190e8;
 }
 #center {
   background-color: white;

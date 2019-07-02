@@ -216,10 +216,11 @@ align-items: center;
 .gm {
   float: right;
   margin-right: 0.3rem;
-  width: 0.6rem;
+  width: 0.45rem;
   height: 0.3rem;
   margin-top: 0.1rem;
- font-size: 0.15rem;
+  line-height: 0.3rem;
+ font-size: 0.16rem;
   background-color: white;
   border: 1px solid #f60;
   color: #f60;

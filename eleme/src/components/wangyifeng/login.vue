@@ -149,12 +149,12 @@ color: white;
   padding-left: 0.1rem;  
 }
 .tp{
-    top: 1.5rem;
+    top: 1.65rem;
 position: absolute;
-margin-left:2rem; 
+ left:2rem; 
 }
 .ht{
-      top: 1.6rem;
+      top: 1.65rem;
 position: absolute;
  left:2.9rem; 
 }
@@ -171,19 +171,20 @@ position: absolute;
      padding-left: 0.1rem; 
 }
 .log{
+    border:0;
     margin-top: 0.15rem;
     width:3.55rem;
     height: 0.4rem;
     margin-left: 0.1rem;
-    text-align: center;
+  text-align: center;
     color: white;
     font-size: 0.18rem; 
     text-align: center;
     background-color: rgb(75,217,99);
 }
 .two{
-    margin-top: 0.7rem;
-position: absolute;
- left:2.9rem; 
+    margin-top: 0.3rem;
+float: right;
+ margin-right: 0.2rem;
 }
 </style>

@@ -9,12 +9,14 @@
         <img id="left1" src="../../../static/imgs/hongren.png" alt>
         <p id="left2">在线客服</p>
       </div>
-      <router-link to="public">
+    
         <div id="right">
+          <a href="tel:110">
           <img id="right1" src="../../../static/imgs/dianhua.png" alt>
           <p id="right2">在线客服</p>
+          </a>
         </div>
-      </router-link>
+      
     </div>
     <div id="center">
           <p id="center1">热门问题</p>
@@ -229,7 +231,7 @@ export default {
 }
 #_head {
   margin-top: 0.1rem;
-  width: 0.2rem;
+  width: 0.25rem;
   float: left;
 }
 #_head_ {
