@@ -115,7 +115,9 @@
         <p class="classp1" v-if="this.$store.state.totalprice<20">还差￥{{chaqian}}起送</p>
         <p class="classp2" v-if="this.$store.state.totalprice>=20">请结算</p>
       </div>
+      <div class="imggo">
       <img
+       @click.stop="shopping=!shopping && num>0"
         src="../../../static/imgs/gouwuche.png"
         v-if="this.$store.state.totalprice<20"
         class="goshop"
@@ -126,6 +128,7 @@
         v-else
         class="goshopblue"
       />
+      </div>
       <div class="countnum" v-if="num">{{num}}</div>
     </div>
 
@@ -271,13 +274,14 @@ export default {
         b: b
       });
 
+      var boto = document.getElementsByClassName("boto")[0];
       var balls = document.getElementsByClassName("ball");
       balls[b].style.top = evt.pageY + "px";
       balls[b].style.left = evt.pageY + "px";
       balls[b].style.transition = "left 0s, top 0s";
       setTimeout(() => {
-        balls[b].style.top = window.innerHeight + "px";
-        balls[b].style.left = "0px";
+        balls[b].style.top = (window.innerHeight-boto.offsetHeight) + "px";
+        balls[b].style.left = "18px";
         balls[b].style.transition = "left 1s linear, top 1s ease-in";
       }, 10);
 
@@ -367,9 +371,13 @@ export default {
     },
     adjia(a) {
       this.$store.commit("goujia", a);
+       this.chaqian =
+        this.shopdata.float_minimum_order_amount - this.$store.state.totalprice;
     },
     dejian(b) {
       this.$store.commit("goujian", b);
+       this.chaqian =
+        this.shopdata.float_minimum_order_amount - this.$store.state.totalprice;
     },
     clearall(s) {
       for (var i = 0; i < s.length; i++) {
@@ -377,7 +385,7 @@ export default {
       }
       this.$store.state.totalprice = 0;
       this.shopping = false;
-      this.chaqian = 0;
+      this.chaqian = 20;
        this.$store.commit("recqian", this.chaqian);
     }
   },

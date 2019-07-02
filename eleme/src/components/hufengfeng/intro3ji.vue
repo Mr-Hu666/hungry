@@ -39,7 +39,7 @@
         <p class="classp1" v-if="this.$store.state.totalprice<20">还差￥{{$store.state.haimo}}起送</p>
         <p class="classp2" v-if="this.$store.state.totalprice>=20">请结算</p>
       </div>
-     <img src="../../../static/imgs/gouwuche.png" v-if="this.$store.state.totalprice<20" class="goshop">
+     <img @click.stop="shopping=!shopping && num>0" src="../../../static/imgs/gouwuche.png" v-if="this.$store.state.totalprice<20" class="goshop">
       <img @click.stop="shopping=!shopping" src="../../../static/imgs/gouwuche.png" v-else class="goshopblue">
       <div class="countnum" v-if="num">{{num}}</div>
     </div>
@@ -100,6 +100,8 @@ export default {
     },
     dejian(b) {
       this.$store.commit("goujian", b);
+       this.$store.state.haimo =
+        this.shopdata.float_minimum_order_amount - this.$store.state.totalprice;
       if(this.num==0){
          this.$store.state.haimo = 20;
       }
