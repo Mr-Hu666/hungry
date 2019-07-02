@@ -91,13 +91,13 @@ export default {
         this.xian=true;
         this.show2=false;
       const api =
-        "https://elm.cangdu.org/v4/restaurants?geohash="+this.latitude+","+this.longitude+"&keyword=" + this.inp;
+        "https://elm.cangdu.org/v4/restaurants?geohash="+this.$store.state.latitude+","+this.$store.state.longitude+"&keyword=" + this.inp;
       this.$http({
         url: api,
         method: "",
         withCredentials: true
       }).then(res => {
-        // console.log(res);
+        console.log(res);
         this.detial = res.data;
 
         if (this.inp.length == 0) {
@@ -181,6 +181,7 @@ export default {
   width: 100%;
   height: 100vh;
   box-sizing: border-box;
+  overflow: hidden;
 }
 .top {
   width: 100%;

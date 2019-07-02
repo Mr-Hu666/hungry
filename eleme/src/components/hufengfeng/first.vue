@@ -1,16 +1,14 @@
 <template>
   <div id="wrap">
     <div class="top">
-     
-       <div class="fangda" @click="sousuo()">
-          <img class="lulu" src="../../../static/imgs/find.png" />
+      <div class="fangda" @click="sousuo()">
+        <img class="lulu" src="../../../static/imgs/find.png" />
       </div>
-     <span class="dizhi">{{detail}}</span>
-     <!-- <span class="dizhi">{{this.$store.state.depo}}</span> -->
+      <span class="dizhi">{{detail}}</span>
+      <!-- <span class="dizhi">{{this.$store.state.depo}}</span> -->
       <div class="dengli">
-       <span @click="login()" v-if="this.$store.state.where">登录/注册</span>
+        <span @click="login()" v-if="this.$store.state.where">登录/注册</span>
         <img @click="first()" v-else class="toutou" src="../../../static/imgs/meF.png" alt />
-      
       </div>
     </div>
     <div class="rotation">
@@ -18,17 +16,21 @@
         <!-- slides -->
         <swiper-slide class="swip">
           <div class="lunbo" v-for="(v,i) in resdata" :key="i">
-            <router-link :to="'/sweet?id='+v.title+'&latitude='+$store.state.latitude+'&longitude='+$store.state.longitude">
-            <img :src="'https://fuss10.elemecdn.com/'+v.image_url" alt />
-            <p>{{v.title}}</p>
+            <router-link
+              :to="'/sweet?id='+v.title+'&latitude='+$store.state.latitude+'&longitude='+$store.state.longitude"
+            >
+              <img :src="'https://fuss10.elemecdn.com/'+v.image_url" alt />
+              <p>{{v.title}}</p>
             </router-link>
           </div>
         </swiper-slide>
         <swiper-slide class="swip">
           <div class="lunbo" v-for="(v,i) in resdata2" :key="i">
-             <router-link :to="'/sweet?id='+v.title+'&latitude='+$store.state.latitude+'&longitude='+$store.state.longitude">
-            <img :src="'https://fuss10.elemecdn.com/'+v.image_url" alt />
-            <p>{{v.title}}</p>
+            <router-link
+              :to="'/sweet?id='+v.title+'&latitude='+$store.state.latitude+'&longitude='+$store.state.longitude"
+            >
+              <img :src="'https://fuss10.elemecdn.com/'+v.image_url" alt />
+              <p>{{v.title}}</p>
             </router-link>
           </div>
         </swiper-slide>
@@ -36,12 +38,12 @@
       </swiper>
     </div>
 
-    <div class="nearshops">
+    <div class="nearshops" >
       <div class="nearh">
         <img src="../../../static/imgs/homeT.png" alt />
         <p>附近商家</p>
       </div>
-      <div class="nowshops">
+      <div class="nowshops" id="whatshops">
         <div v-for="(v,i) in xinxi" :key="i" class="loopline" @click="nexts(v.id)">
           <div class="leftimg">
             <img :src="'https://elm.cangdu.org/img/'+v.image_path" />
@@ -49,7 +51,7 @@
           <div class="baocen">
             <div class="cen-p1">
               <span>品牌</span>
-              <span>{{v.name}}</span>
+              <span v-if="v.name">{{v.name}}</span>
               <div class="bao-rig">
                 <span v-if="v.supports[0]" v-text="v.supports[0].icon_name"></span>
                 <span v-if="v.supports[1]" v-text="v.supports[1].icon_name"></span>
@@ -63,13 +65,20 @@
                 :show-score="seen"
                 text-color="#ff9900"
                 class="rates"
-              ></el-rate> -->
-              <van-rate v-model="v.rating" allow-half readonly color="#ff6000" class="rates" size="0.12rem" />
+              ></el-rate>-->
+              <van-rate
+                v-model="v.rating"
+                allow-half
+                readonly
+                color="#ff6000"
+                class="rates"
+                size="0.12rem"
+              />
               <span class="xingxing">{{v.rating}}</span>
               <span>月售{{v.recent_order_num}}单</span>
               <div class="bao-rig2" v-if="v.delivery_mode">
                 <span v-if="v.delivery_mode.text">{{v.delivery_mode.text}}</span>
-                <span>{{v.supports[1].name}}</span>
+                <span v-if="v.supports[1].name">{{v.supports[1].name}}</span>
               </div>
             </div>
             <div class="cen-p3">
@@ -84,30 +93,27 @@
       </div>
     </div>
 
- <div class="bottomss">
-            <div class="home">
-                <img src="../../../static/imgs/homeT.png" alt="">
-                <p>外卖</p>
-            </div>
-          
-            <div class="search" @click="tosearch()">
-                 <img src="../../../static/imgs/searchF.png" alt="">
-                 <p>搜索</p>
-            </div>
+    <div class="bottomss">
+      <div class="home">
+        <img src="../../../static/imgs/homeT.png" alt />
+        <p>外卖</p>
+      </div>
 
-           <div class="order" @click="toorder()">
-               <img src="../../../static/imgs/orderF.png" alt="">
-               <p>订单</p>
-           </div>
+      <div class="search" @click="tosearch()">
+        <img src="../../../static/imgs/searchF.png" alt />
+        <p>搜索</p>
+      </div>
 
-            <div class="me" @click="tome()">
-                <img src="../../../static/imgs/meF.png" alt="">
-                <p>我的</p>
-            </div>
-        </div>
+      <div class="order" @click="toorder()">
+        <img src="../../../static/imgs/orderF.png" alt />
+        <p>订单</p>
+      </div>
 
-
-
+      <div class="me" @click="tome()">
+        <img src="../../../static/imgs/meF.png" alt />
+        <p>我的</p>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -121,7 +127,7 @@ export default {
   data() {
     return {
       num1: 10,
-      num2: 0, 
+      num2: 0,
       seen: true,
       detail: "",
       position: "",
@@ -159,7 +165,6 @@ export default {
   },
   //挂在完成后触发 调用滚动方法
   mounted() {
-    //可以在这里面直接进行滚动条的获取
     window.addEventListener("scroll", this.handleScroll, true);
   },
 
@@ -167,8 +172,8 @@ export default {
     // fenlei(){
     //   this.$router.push({name:"sweet"});
     // },
-    tome(){
-      this.$router.push({name:"wode"});
+    tome() {
+      this.$router.push({ name: "wode" });
     },
     getImgs() {
       const api = "https://elm.cangdu.org/v2/index_entry";
@@ -198,7 +203,7 @@ export default {
         "https://elm.cangdu.org/v2/pois/" +
         this.$store.state.latitude +
         "," +
-       this.$store.state.longitude;
+        this.$store.state.longitude;
       this.$http({
         url: api,
         method: "get",
@@ -207,7 +212,10 @@ export default {
         console.log(api);
         //  console.log("apissss");
         console.log(res.data);
-        this.detail = res.data.name;
+        if (res.data.name) {
+          this.detail = res.data.name;
+        }
+
         // count++;
         // if (count == 3) {
         //   count = 0;
@@ -221,14 +229,16 @@ export default {
         "https://elm.cangdu.org/shopping/restaurants?latitude=" +
         this.$store.state.latitude +
         "&longitude=" +
-       this.$store.state.longitude+"&limit="+this.num1;
+        this.$store.state.longitude +
+        "&limit=" +
+        this.num1;
       this.$http({
         url: api,
         method: "get",
         withCredentials: true
       }).then(res => {
         // console.log("datas");
-         console.log(api);
+        console.log(api);
         console.log(res.data);
         // console.log(res.data.order_by);
         this.xinxi = res.data;
@@ -246,28 +256,28 @@ export default {
       });
       this.$store.commit("getshopID", vid);
     },
-    login(){
-        this.$router.push({
+    login() {
+      this.$router.push({
         name: "login"
       });
     },
-    first(){
-       this.$store.state.onetwo = false;
-        this.$router.push({
+    first() {
+      this.$store.state.onetwo = false;
+      this.$router.push({
         name: "wode"
       });
     },
-    tosearch(){
+    tosearch() {
       this.$router.push({
         name: "search"
       });
     },
-    toorder(){
+    toorder() {
       this.$router.push({
         name: "order"
       });
     },
-    sousuo(){
+    sousuo() {
       this.$router.push({
         name: "search"
       });
@@ -280,7 +290,7 @@ export default {
           window.pageXOffset
       );
       // console.log(top);
-      if (top > 260 + 900 * this.num2) {
+      if (top > 200 + 900 * this.num2) {
         this.jiazai();
       }
      },
@@ -289,19 +299,15 @@ export default {
       this.num1 += 10;
       this.getShops();
     },
-
-     
-
-
-    
+ 
   }
 };
 </script>
 
 <style scoped>
 #wrap {
-  width: 100%;
-  height: 100vh;
+  /* width: 100%;
+  height: 100vh; */
   position: relative;
 }
 .top {
@@ -314,35 +320,34 @@ export default {
   color: white;
   overflow: hidden;
 }
-.fangda{
+.fangda {
   width: 16%;
   float: left;
   text-align: center;
-  
 }
 .dengli {
   width: 20%;
   font-size: 0.15rem;
   float: right;
-   text-align: center;
+  text-align: center;
   /* margin-right: 0.08rem; */
 }
-.toutou{
-   height: 0.28rem;
-   margin-top: 0.1rem;
-   float: right;
+.toutou {
+  height: 0.28rem;
+  margin-top: 0.1rem;
+  float: right;
 }
 .lulu {
   margin-top: 0.1rem;
-   height: 0.28rem;
+  height: 0.28rem;
   /* margin-left: 0.1rem; */
   /* float: left; */
 }
-.dizhi{
+.dizhi {
   width: 64%;
   float: left;
   height: 0.5rem;
-   overflow: hidden;
+  overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -393,7 +398,7 @@ export default {
   height: 0.4rem;
   line-height: 0.4rem;
   overflow: hidden;
-  border-bottom:1px solid lightgray;
+  border-bottom: 1px solid lightgray;
 }
 .nearh img {
   float: left;
@@ -408,11 +413,14 @@ export default {
 }
 .nowshops {
   width: 100%;
+  margin-bottom: 0.45rem;
+ 
 }
 .loopline {
   width: 100%;
   height: 0.9rem;
   border-bottom: 1px solid lightgray;
+  overflow: hidden;
 }
 .loopline > div {
   float: left;
@@ -466,9 +474,9 @@ export default {
   /* padding: 0; */
   /* margin: 0; */
 }
-.xingxing{
+.xingxing {
   color: #ff6000;
-font-size: 0.1rem;
+  font-size: 0.1rem;
 }
 .cen-p2 {
   width: 100%;
@@ -509,27 +517,25 @@ font-size: 0.1rem;
   color: rgb(49, 143, 231);
 }
 
-
-.bottomss{
-    width: 100%;
-    background-color: #fff;
-    height: 0.45rem;
-    display: flex;
-    border-top: 1px solid lightgray;
-    justify-content: space-around;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-
+.bottomss {
+  width: 100%;
+  background-color: #fff;
+  height: 0.45rem;
+  display: flex;
+  border-top: 1px solid lightgray;
+  justify-content: space-around;
+  position: fixed;
+  bottom: 0;
+  left: 0;
 }
-.bottomss div{
-   height: 0.45rem;    
-   text-align: center;
-   font-size: 0.1rem;
-   color: black;
+.bottomss div {
+  height: 0.45rem;
+  text-align: center;
+  font-size: 0.1rem;
+  color: black;
 }
-.bottomss img{
-    margin-top: 0.03rem;
-    height: 0.25rem;
+.bottomss img {
+  margin-top: 0.03rem;
+  height: 0.25rem;
 }
 </style>

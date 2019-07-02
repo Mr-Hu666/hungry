@@ -70,8 +70,8 @@ export default {
       this.$router.push({
         name:"first"
       });
-      this.$store.state.totalprice=0;
-      this.$store.state.obj=[];
+      // this.$store.state.totalprice=0;
+      // this.$store.state.obj=[];
     },
     getSid() {
       const api =
