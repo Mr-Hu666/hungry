@@ -51,17 +51,19 @@
             </div>
           </div>
           <div class="cen-p2">
-            <el-rate
+            <!-- <el-rate
               v-model="v.rating"
               disabled
               :show-score="seen"
               text-color="#ff9900"
               class="rates"
-            ></el-rate>
+            ></el-rate> -->
+            <van-rate v-model="v.rating" readonly color="#ff6000" class="rates" size="0.12rem" />
+            <span class="xingxing">{{v.rating}}</span>
             <span>月售{{v.recent_order_num}}单</span>
             <div class="bao-rig2" v-if="v.delivery_mode">
               <span v-if="v.delivery_mode.text">{{v.delivery_mode.text}}</span>
-              <span v-if="v.supports[1].name">{{v.supports[1].name}}</span>
+              <span v-if="v.supports[1]">{{v.supports[1].name}}</span>
             </div>
           </div>
           <div class="cen-p3">
@@ -95,7 +97,9 @@ export default {
       position: "",
       xinxi: [],
       num: "",
-      datamsgFormSon: ""
+      datamsgFormSon: "",
+      num1: 10,
+      num2: 0, //记录滚动的次数
     };
   },
   created() {
@@ -111,6 +115,11 @@ export default {
     this.geteat();
     this.getPosition();
     this.getShops();
+  },
+  //挂在完成后触发 调用滚动方法
+  mounted() {
+    //可以在这里面直接进行滚动条的获取
+    window.addEventListener("scroll", this.handleScroll, true);
   },
   computed: {
     getLa() {
@@ -174,12 +183,13 @@ export default {
         "&longitude=" +
         this.$store.state.longitude +
         "&order_by=" +
-        this.$store.state.paixu;
+        this.$store.state.paixu+"&limit="+this.num1;
       this.$http({
         url: api,
         method: "get",
         withCredentials: true
       }).then(res => {
+        console.log(api);
         console.log(this.$store.state.paixu);
         console.log(this.$store.state.latitude);
         console.log(this.$store.state.longitude);
@@ -238,7 +248,26 @@ export default {
         this.show2 =!this.show3;
          this.color2="";
       } 
-    }
+    },
+     handleScroll() {
+      // 方法一
+      var top = Math.floor(
+        document.body.scrollTop ||
+          document.documentElement.scrollTop ||
+          window.pageXOffset
+      );
+      // console.log(top);
+      if (top > 900 * this.num2) {
+        this.jiazai();
+      }
+     },
+     jiazai() {
+      this.num2 += 1;
+      this.num1 += 10;
+      this.getShops();
+    },
+
+
   },
   components: {
     paixu,
@@ -394,11 +423,12 @@ export default {
 .nowshops {
   width: 100%;
   margin-top: 1rem;
+  background-color: #fff;
 }
 .loopline {
   width: 100%;
   height: 0.8rem;
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid lightgray;
 }
 .loopline > div {
   float: left;
@@ -424,7 +454,7 @@ export default {
   display: inline-block;
 }
 .cen-p1 > span:nth-child(1) {
-  font-size: 0.13rem;
+  font-size: 0.1rem;
   background-color: yellow;
 }
 .cen-p1 > span:nth-child(2) {
@@ -440,14 +470,18 @@ export default {
 }
 .bao-rig > span {
   display: inline-block;
+  padding: 0.01rem;
   border: 1px solid gray;
+   font-size: 0.1rem;
+   color: #999;
+
 }
 .rates {
   float: left;
-  width: 50%;
+  width: 28%;
   font-size: 0.1rem;
-  padding: 0;
-  margin: 0;
+  /* padding: 0; */
+  margin-top: 0.05rem;
 }
 .cen-p2 {
   width: 100%;
@@ -455,6 +489,9 @@ export default {
 }
 .cen-p2 span {
   font-size: 0.08rem;
+}
+.xingxing{
+ color: #ff6000;
 }
 .bao-rig2 {
   padding-top: 0.025rem;

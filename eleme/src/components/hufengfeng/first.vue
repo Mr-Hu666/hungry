@@ -5,8 +5,8 @@
        <div class="fangda" @click="sousuo()">
           <img class="lulu" src="../../../static/imgs/find.png" />
       </div>
-     <!-- <span class="dizhi">{{detail}}</span> -->
-     <span class="dizhi">{{this.$store.state.depo}}</span>
+     <span class="dizhi">{{detail}}</span>
+     <!-- <span class="dizhi">{{this.$store.state.depo}}</span> -->
       <div class="dengli">
        <span @click="login()" v-if="this.$store.state.where">登录/注册</span>
         <img @click="first()" v-else class="toutou" src="../../../static/imgs/meF.png" alt />
@@ -57,13 +57,15 @@
               </div>
             </div>
             <div class="cen-p2">
-              <el-rate
+              <!-- <el-rate
                 v-model="v.rating"
                 disabled
                 :show-score="seen"
                 text-color="#ff9900"
                 class="rates"
-              ></el-rate>
+              ></el-rate> -->
+              <van-rate v-model="v.rating" readonly color="#ff6000" class="rates" size="0.12rem" />
+              <span class="xingxing">{{v.rating}}</span>
               <span>月售{{v.recent_order_num}}单</span>
               <div class="bao-rig2" v-if="v.delivery_mode">
                 <span v-if="v.delivery_mode.text">{{v.delivery_mode.text}}</span>
@@ -83,7 +85,7 @@
     </div>
 
  <div class="bottomss">
-            <div class="home" @click="tohome()">
+            <div class="home">
                 <img src="../../../static/imgs/homeT.png" alt="">
                 <p>外卖</p>
             </div>
@@ -391,6 +393,7 @@ export default {
   height: 0.4rem;
   line-height: 0.4rem;
   overflow: hidden;
+  border-bottom:1px solid lightgray;
 }
 .nearh img {
   float: left;
@@ -409,7 +412,7 @@ export default {
 .loopline {
   width: 100%;
   height: 0.9rem;
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid lightgray;
 }
 .loopline > div {
   float: left;
@@ -447,18 +450,25 @@ export default {
   height: 0.2rem;
   float: right;
   margin-right: 0.05rem;
-  font-size: 0.13rem;
+  font-size: 0.08rem;
 }
 .bao-rig > span {
   display: inline-block;
+  padding: 0.01rem;
   border: 1px solid gray;
+  color: #999;
 }
 .rates {
   float: left;
-  width: 50%;
+  width: 28%;
   font-size: 0.1rem;
-  padding: 0;
-  margin: 0;
+  margin-top: 0.05rem;
+  /* padding: 0; */
+  /* margin: 0; */
+}
+.xingxing{
+  color: #ff6000;
+font-size: 0.1rem;
 }
 .cen-p2 {
   width: 100%;
@@ -477,10 +487,11 @@ export default {
 .bao-rig2 span {
   border: 1px solid rgb(49, 143, 231);
   color: rgb(49, 143, 231);
+  font-size: 0.08rem;
 }
 .bao-rig2 span:nth-child(1) {
   color: white;
-  font-size: 0.1rem;
+  font-size: 0.08rem;
   background-color: rgb(49, 143, 231);
 }
 .cen-p3 {
@@ -491,6 +502,8 @@ export default {
 .rig3 {
   float: right;
   margin-right: 0.05rem;
+  /* border:1px solid red;
+  box-sizing: border-box; */
 }
 .rig3 span:nth-child(2) {
   color: rgb(49, 143, 231);

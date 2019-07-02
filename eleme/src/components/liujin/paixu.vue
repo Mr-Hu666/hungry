@@ -70,9 +70,10 @@ export default {
     },
     //选择排序方式
     reduce(a) {
-      this.$emit("ee", "cc123456");
+      
     //   console.log(1234567890);
       this.$store.commit("reduceN", a);
+      this.$emit("ee", "cc123456");
     }
   }
 };

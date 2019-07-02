@@ -13,25 +13,30 @@
         <div>
           <span>服务态度</span>
           <span>
-            <el-rate
+            <!-- <el-rate
               v-model="server"
               disabled
               :show-score="seen"
               text-color="#ff9900"
               class="ratesss"
-            ></el-rate>
+            ></el-rate> -->
+
+            <van-rate v-model="server" readonly class="ratesss" size="0.18rem" />
+
+
           </span>
         </div>
         <div>
           <span>菜品评价</span>
           <span>
-            <el-rate
+            <!-- <el-rate
               v-model="caipin"
               disabled
               :show-score="seen"
               text-color="#ff9900"
               class="ratesss"
-            ></el-rate>
+            ></el-rate> -->
+            <van-rate v-model="caipin" readonly class="ratesss" size="0.18rem" />
           </span>
         </div>
         <div>
@@ -58,14 +63,15 @@
         <div class="ping-mid">
           <p>{{v.username}}</p>
           <p class="stars">
-            <el-rate
+            <!-- <el-rate
               v-model="v.rating_star"
               disabled
               :show-score="nosee"
               text-color="#ff9900"
               score-template="{value}"
               class="aass"
-            ></el-rate>
+            ></el-rate> -->
+            <van-rate v-model="v.rating_star" readonly class="aass" size="0.1rem"  />
             <span v-if="v.time_spent_desc">{{v.time_spent_desc}}</span>
           </p>
           <div class="midimg" v-if="v.item_ratings">
@@ -174,7 +180,7 @@ export default {
          sortof[i].style.color = "black";
 
       }
-      sortof[a].style.backgroundColor = "blue";
+      sortof[a].style.backgroundColor = "rgb(49, 143, 231)";
       sortof[a].style.color = "white";
     }
   },
@@ -342,4 +348,5 @@ export default {
 .stars span {
   font-size: 0.14rem;
 }
+
 </style>

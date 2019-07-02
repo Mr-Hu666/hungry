@@ -220,12 +220,13 @@ export default {
   color: rgb(49, 143, 231);
   float: left;
   margin-left: 2%;
-  font-size: 0.18rem;
+  font-size: 0.16rem;
 }
 .more span:nth-child(2) {
   float: right;
   margin-right: 2%;
-  font-size: 0.3rem;
+  color: lightgray;
+  font-size: 0.26rem;
 }
 .hotcity {
   margin-top: 0.1rem;
@@ -237,6 +238,7 @@ export default {
   padding-left: 2%;
   line-height: 0.3rem;
   height: 0.3rem;
+  border-bottom: 0.005rem solid #e4e4e4;
 }
 .hotcity ul {
   width: 100%;
@@ -247,7 +249,8 @@ export default {
   width: 25%;
   height: 0.4rem;
   box-sizing: border-box;
-  border: 1px solid grey;
+ border-bottom: 0.005rem solid #e4e4e4;
+  border-right: 0.005rem solid #e4e4e4;
   line-height: 0.4rem;
   text-align: center;
 }
@@ -269,8 +272,7 @@ export default {
   margin-bottom: 0.1rem;
   width: 100%;
   box-sizing: border-box;
-  border-top: 1px solid gray;
-  border-bottom: 1px solid gray;
+  border-bottom: 0.005rem solid #e4e4e4;
   line-height: 0.4rem;
   color: black;
   background-color: white;
@@ -282,16 +284,19 @@ export default {
   list-style-type: none;
   display: flex;
   flex-wrap: wrap;
+  border-bottom: 0.005rem solid #e4e4e4;
 }
 .cities {
   width: 25%;
   height: 0.4rem;
   box-sizing: border-box;
-  border: 1px solid grey;
+  border-bottom: 0.005rem solid #e4e4e4;
+  border-right: 0.005rem solid #e4e4e4;
+  /* border: 1px solid grey; */
   line-height: 0.4rem;
   text-align: center;
   color: black;
-  font-size: 0.15rem;
+  font-size: 0.14rem;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -302,6 +307,7 @@ export default {
   height: 0.4rem;
   line-height: 0.4rem;
   font-size: 0.16rem;
+  border-bottom: 0.005rem solid #e4e4e4;
 }
 #blackcity {
   color: black;

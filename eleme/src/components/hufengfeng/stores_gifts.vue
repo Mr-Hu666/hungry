@@ -72,8 +72,9 @@
                 <div class="jiajian" v-else>
                   <span class="jianhao" @click.stop="delle(i,b,k)" v-if="k.is_featured>0">-</span>
                   <span v-if="k.is_featured>0">{{k.is_featured}}</span>
-                  <span class="jiahao" @click.stop="addd(i,b,k)">+</span>
+                  <span class="jiahao" @click.stop="addd(i,b,k,$event)">+</span>
                 </div>
+                <div class="ball">+</div>
               </div>
             </div>
           </div>
@@ -127,7 +128,7 @@
       />
       <div class="countnum" v-if="num">{{num}}</div>
     </div>
-    <div id="ball">+</div>
+
     <div class="cargo" v-if="shopping && shopnum.length>0">
       <p v-if="shopnum.length>0 && shopping" class="pshop1">
         <span>购物车</span>
@@ -264,25 +265,21 @@ export default {
       this.kobj = v;
       this.boll = true;
     },
-    addd(a, b, k) {
+    addd(a, b, k, evt) {
       this.$store.commit("getindex", {
         a: a,
         b: b
       });
 
-
-//       var $ball = document.getElementById("ball");
-//  jiahao[i].onclick = function(evt) {
-//             // console.log(evt.pageX,evt.pageY);
-//             $ball.style.top = evt.pageY + "px";
-//             $ball.style.left = evt.pageX + "px";
-//             $ball.style.transition = "left 0s, top 0s";
-//             setTimeout(() => {
-//               $ball.style.top = window.innerHeight + "px";
-//               $ball.style.left = "0px";
-//               $ball.style.transition = "left 1s linear, top 1s ease-in";
-//             }, 20);
-//           };
+      var balls = document.getElementsByClassName("ball");
+      balls[b].style.top = evt.pageY + "px";
+      balls[b].style.left = evt.pageY + "px";
+      balls[b].style.transition = "left 0s, top 0s";
+      setTimeout(() => {
+        balls[b].style.top = window.innerHeight + "px";
+        balls[b].style.left = "0px";
+        balls[b].style.transition = "left 1s linear, top 1s ease-in";
+      }, 10);
 
       this.chaqian =
         this.shopdata.float_minimum_order_amount - this.$store.state.totalprice;
@@ -380,6 +377,8 @@ export default {
       }
       this.$store.state.totalprice = 0;
       this.shopping = false;
+      this.chaqian = 0;
+       this.$store.commit("recqian", this.chaqian);
     }
   },
   computed: {
@@ -434,7 +433,7 @@ export default {
 ::-webkit-scrollbar {
   display: none;
 }
-#ball {
+.ball {
   width: 0.25rem;
   height: 0.25rem;
   color: white;
@@ -444,6 +443,8 @@ export default {
   background: rgb(49, 143, 231);
   border-radius: 50%;
   position: fixed;
+  top: 0.3rem;
+  z-index: 15;
   transition: left 1s linear, top 1s ease-in;
 }
 .mid-left {
