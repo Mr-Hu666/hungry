@@ -238,6 +238,8 @@ export default {
           }
         }
         console.log(res.data);
+        console.log("kanwp");
+        console.log(api);
         this.$store.commit("getobj", res.data);
         // this.food = res.data;
 

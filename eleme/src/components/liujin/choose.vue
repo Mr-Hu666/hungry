@@ -39,7 +39,7 @@
             </p>
         </div>
          <button @click="add()" class="btn1">清空</button>
-         <button :v-model="this.$store.state.num" @click="reduce()" class="btn2">确定<span v-if="this.$store.state.num">{{this.$store.state.num}}</span></button>
+         <button :v-model="this.$store.state.num" @click="reduce()" class="btn2">确定<span v-if="this.$store.state.num">({{this.$store.state.num}})</span></button>
     </div>
 </template>
 <script>

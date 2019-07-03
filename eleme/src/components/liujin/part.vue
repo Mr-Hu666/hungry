@@ -2,13 +2,11 @@
     <div id="wrap" v-if="show">
         <div class="li1">
         <li @click="add(v,i)" :class="{active:i==isactive}" :key="i" v-for="(v,i) in names">
-             <div class="div1"><img :src="'https://fuss10.elemecdn.com/'+v.image_url+'.png'" alt="">
-             <img :src="'https://fuss10.elemecdn.com/'+v.image_url+'.jpeg'"
-              alt=""> 
+             <div class="div1">
+                 <img src="../../../static/imgs/huangguan.png" alt="">
               <span>{{v.name}}</span>
               <span class="div1S">{{v.count}}</span>
               </div>
-              
               <img class="divI" src="../../../static/imgs/right.png" alt="">
         </li>
         </div>
@@ -95,7 +93,7 @@ export default {
      height: 4.5rem;
      /* border: 1px solid red; */
      float: left;
-     background-color: gray;
+     background-color: lightgray;
      overflow: hidden;
  }
  .active{

@@ -84,6 +84,7 @@ export default {
       }).then(res => {
         // console.log("你好");
         // console.log(res.data);
+        console.log(api);
         this.shopdata = res.data;
       });
     },
@@ -96,7 +97,7 @@ export default {
         method: "get",
         withCredentials: true
       }).then(res => {
-        // console.log("food");
+        console.log(api);
         // console.log(res.data);
         this.food = res.data;
       });

@@ -85,6 +85,9 @@ export default {
     this.latitude = this.$route.query.latitude;
     this.longitude = this.$route.query.longitude;
     this.history = this.$store.state.history;
+    if(this.history.length>0){
+      this.show1=true;
+    }
   },
   methods: {
     findcook() {
@@ -155,9 +158,11 @@ export default {
        this.$store.state.history=[];
       this.show1 = false;
     },
-    chuan(a){
-      this.$store.commit("getshopID",a);
+    chuan(f){
+      this.$store.commit("getshopID",f);
       this.$router.push({name:"stores"});
+      console.log("点击了");
+      console.log(f);
     },
     lishi(v) {
       //   this.id=v.id;
