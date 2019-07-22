@@ -11,7 +11,6 @@
         <router-link to="/login">
           <span>登录|注册</span>
         </router-link>
-         
       </div>
     </div>
     <div class="two">
@@ -23,9 +22,9 @@
       <span class="m">{{tcity.name}}</span>
       <span>
         <!-- <router-link :to="'/change?id='+tcity.id+'&cityName='+tcity.name" >></router-link> -->
-         <router-link :to="'/change?id='+tcity.id+'&cityName='+tcity.name">
-         <img src="../../../static/imgs/right.png" alt="">
-         </router-link>
+        <router-link :to="'/change?id='+tcity.id+'&cityName='+tcity.name">
+          <img src="../../../static/imgs/right.png" alt />
+        </router-link>
       </span>
     </div>
     <div class="hotc">
@@ -59,7 +58,7 @@ export default {
       tcity: "",
       hotc: [],
       groupCities: {},
-      id:""
+      id: ""
     };
   },
   created() {
@@ -78,7 +77,7 @@ export default {
         withCredentials: true
       }).then(res => {
         // console.log(res.data);
-        this.tcity=res.data;
+        this.tcity = res.data;
       });
     },
     getHotc() {
@@ -90,8 +89,8 @@ export default {
       }).then(res => {
         // console.log(res.data);
         this.hotc = res.data;
-        this.id=res.data.id;
-        this.$store.commit("getid",this.id);
+        this.id = res.data.id;
+        this.$store.commit("getid", this.id);
       });
     },
     getAllcity() {
@@ -121,7 +120,7 @@ export default {
 </script>
 <style scoped>
 #wrap {
-   width:3.75rem;
+  width: 3.75rem;
   height: 100%;
   position: relative;
   overflow: hidden;
@@ -164,19 +163,19 @@ export default {
 .three {
   height: 0.4rem;
   width: 3.75rem;
-   display: flex;
- justify-content:space-between;
+  display: flex;
+  justify-content: space-between;
   background-color: white;
-    border-top: 1px solid #e4e4e4;  
-  border-bottom: 1px solid #e4e4e4;  
+  border-top: 1px solid #e4e4e4;
+  border-bottom: 1px solid #e4e4e4;
 }
-.m{
+.m {
   float: left;
   margin-left: 2%;
   color: blue;
   margin-top: 2%;
 }
-.three img{ 
+.three img {
   font-size: 0.2rem;
   float: right;
   width: 0.2rem;
